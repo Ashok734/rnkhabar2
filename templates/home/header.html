@@ -1,0 +1,104 @@
+<!-- START HEADER SECTION -->
+{% load static %}
+  <section id="header-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <div class="flat">
+            <h1><b>HEADLINE</b></h1>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="flat" style="text-align: right;">
+           <marquee onmouseover="stop()" onmouseout="start()"> 
+   
+      {% for News in headline %}
+      <a href="/detail/{{News.id}}"> {{News.title}} </a> &nbsp; &nbsp; &nbsp;
+	  	{% endfor %}
+</marquee>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="logo-ads">
+    <div class="container">
+      <div class="row g-lg-5">
+        <div class="col-md-4 mbl-logo">
+          <a href="{% url 'home' %}"> <img src="{% static 'images/logo.png' %}" alt="logo" class="img-fluid"></a>
+        </div>
+        <div class="col-md-8">
+          <a href="#" target="_blank"> <img src="{% static 'images/w1.jpg' %}" alt="ads" class="img-fluid"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="navbar-cover">
+  <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main_nav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link n" href="{% url 'home' %}"> होम</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'esthaniye' %}"> स्थानीय </a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'rajnitic' %}"> राजनीति</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'samsamyak' %}"> समसम्यक </a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'khelkud' %}"> खेलकुद</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'antarastriye' %}"> अन्तरास्ट्रिय </a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'suchana' %}"> सूचना प्रबिधि</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'sowasthya' %}"> स्वास्थ्य </a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'bichar' %}"> विचार</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'rochak' %}"> रोचक </a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"> भिडियो फोटो </a></li>
+        </ul>
+      </div> <!-- navbar-collapse.// -->
+    </div> <!-- container-fluid.// -->
+  </nav>
+</div>
+<section id="mobile-navigation">
+    <div class="container">
+      <div class="mobile-header-cover">
+        <div class="row">
+          <div class="col">
+            <div class="menu-cover">
+              <h2 style="color:#e14c4c;padding-top:5px;padding-button:5px;">Rnkhabar</h2>
+            </div>
+          </div>
+          <div class="col">
+            <div class="menu-cover">
+              <div class="toggle-btn" style="text-align: right;padding-top:3px;">
+                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                  aria-controls="offcanvasExample">
+                  <i class="fas fa-bars" href="#offcanvasExample"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!-- start mobile menu items here -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">RnKhabar
+      </h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link n" href="#"> About Us </a></li>
+        <li class="nav-item"><a class="nav-link n" href="#"> Partners </a></li>
+        <li class="nav-item"><a class="nav-link n" href="#"> How To Help </a></li>
+        <li class="nav-item"><a class="nav-link n" href="#"> History </a></li>
+        <li class="nav-item"><a class="nav-link" href="#"> Contact Us </a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- end mobile menu items here -->

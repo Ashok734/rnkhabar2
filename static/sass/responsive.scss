@@ -1,0 +1,68 @@
+@media (min-width: 1200px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1240px;
+    }
+}
+
+@media(max-width:992px) {
+    .navbar-cover {
+        display: none;
+    }
+}
+
+@media(min-width:992px) {
+    #mobile-navigation {
+        display: none;
+    }
+}
+
+.offcanvas {
+    width: 60%;
+}
+
+.offcanvas img {
+    width: 75%;
+}
+
+.offcanvas li {
+    font-size: 14px;
+    color: #666;
+}
+
+.offcanvas .nav-link {
+    color: #666;
+}
+
+#mobile-navigation .btn {
+    background-color: unset;
+    border: unset;
+    box-shadow: unset;
+    color: #e14c4c;
+}
+
+#mobile-navigation {
+    height: auto;
+    background-color: rgba(37, 67, 105, 1);
+    background: url(../images/pattern.png) no-repeat scroll center bottom transparent;
+}
+
+#mobile-navigation:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    z-index: 9;
+}
+
+@media(max-width:576px) {
+    .mbl-logo {
+        display: none;
+    }
+}

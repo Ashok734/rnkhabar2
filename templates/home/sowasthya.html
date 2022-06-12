@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+			<main class="container mt-3 mb-5" id="news-wrapper">
+			<div class="row">
+			{% for i in Sowasthya %}
+			
+			<h3 class="border-bottom pb-1 my-4">{{i.title}}</h3>
+			{% endfor %}
+			<!-- Category Box -->
+
+			{% for Category in so_news %}
+             <div class="col-md-3 mb-4">
+          <div class="card">
+            <a href="/detail/{{Category.id}}">
+              <img src="{{Category.image.url}}" class="card-img-top" alt="img">
+              <div class="card-body">
+                <h5 class="card-title">{{Category.title | truncatechars:100 }}</h5>
+                <p class="card-text">{{Category.detail | truncatechars:100 | safe }}
+                </p>
+                <span>By : {{Category.author}}</span> <span>/</span>
+                <span>{{Category.type}}</span> <span>/</span>
+                <span>{{Category.add_time | date:"d M Y"}}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+			{% endfor%}
+			<nav aria-label="Page navigation example">
+  <ul class="pagination">
+	  {% if so_news.has_previous %}
+    <li class="page-item"><a class="page-link" href="/sowasthya/?page=1">First</a></li>
+    <li class="page-item"><a class="page-link" href="/sowasthya/?page={{so_news.previous_page_number}}">Previous</a></li>
+	{% endif %}
+    
+	  {% if so_news.has_next %}
+    <li class="page-item"><a class="page-link" href="/sowasthya/?page={{so_news.next_page_number}}">Next</a></li>
+  {% endif %}
+</ul>
+</nav>
+			</div>
+			</main>
+			
+{% endblock%}
+
+

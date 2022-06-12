@@ -1,0 +1,53 @@
+ <!-- footer -->
+ {% load static %}
+  <div id="footer-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="footer-cover">
+            <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="logo">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolore aliquam labore excepturi dicta
+              facilis
+              ab accusantium, illum similique iure commodi molestias illo perspiciatis aspernatur architecto
+              consequuntur
+              exercitationem obcaecati ad.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="footer-cover">
+            <h3>Popular Categories</h3>
+            <hr class="footer-hr">
+            <div class="row">
+              <div class="col-5">
+               <a href="{% url 'esthaniye' %}"> <li><i class="fas fa-angle-right"></i> स्थानीय</li></a>
+               <a href="{% url 'rajnitic' %}"> <li><i class="fas fa-angle-right"></i> राजनीति </li></a>
+               <a href="{% url 'samsamyak' %}"> <li><i class="fas fa-angle-right"></i> समसम्यक</li></a>
+               <a href="{% url 'khelkud' %}"> <li><i class="fas fa-angle-right"></i> खेलकुद</li></a>
+              </div>
+               <div class="col-7">
+               <a href="{% url 'antarastriye' %}"> <li><i class="fas fa-angle-right"></i> अन्तरास्ट्रिय</li></a>
+                <a href="{% url 'suchana' %}"><li><i class="fas fa-angle-right"></i> सूचना प्रबिधि</li></a>
+                <a href="{% url 'sowasthya' %}"><li><i class="fas fa-angle-right"></i> स्वास्थ्य</li></a>
+               <a href="{% url 'bichar' %}"> <li><i class="fas fa-angle-right"></i> विचार</li></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="footer-cover">
+            <h3>CONTACT US</h3>
+            <hr class="footer-hr">
+            <p><i class="fas fa-phone"></i> 0000 00 00 00, 009000900</p>
+            <p><i class="far fa-envelope"></i> meashok850@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</p>
+          </div>
+        </div>
+      </div>
+      <div class="power-by">
+        <span>Copyright © 2022. Developed & Powered by Ashok shah</span>
+      </div>
+    </div>
+  </div>
+
+ 

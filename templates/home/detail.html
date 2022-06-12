@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block body %}
+ <section id="detail-news-views">
+<main class="container mt-3 mb-5">
+	<!-- featured news -->
+	<div class="row my-3">
+		<!-- Left -->
+		<div class="col-md-8">
+			<div class="card mb-3">
+			  <div class="card-body"> 
+				  <div class="views-detail-news">
+				   <span>By : {{news.author}}</span> <span>/</span>
+                <span>{{news.type}}</span> <span>/</span>
+                <span>{{news.add_time | date:"d M Y"}}</span>
+				 <span class="name"> {{news.views}}Views</span>
+			  </div>
+			    <h3 class="card-title" style="text-align:center;"><b>{{news.title}}</b></h3>
+				 <img src="{{news.image.url}}" class="card-img-top" alt="{{news.title}}">
+				   <hr/>
+			    <p class="card-text">{{news.detail | safe}}</p>
+				 <div class="fb-share-button" data-href="http://127.0.0.1:8000/detail/{{news.id}}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fdetail%2F38&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+			  </div>
+			  {% comment %} <div class="card-footer">
+			  	In <a href="/category/{{news.category.id}}">{{news.category.title}}</a>
+			  </div> {% endcomment %}
+			 
+			  <div class="fb-comments" data-href="http://127.0.0.1:8000/detail/{{news.id}}" data-width="" data-numposts="5"></div>
+			</div>
+
+			
+		</div>
+		<!-- Related News -->
+		<div class="col-md-4">
+			<h3 class="mb-3 border-bottom pb-1">Related news</h3>
+			<!-- Category Box -->
+            {% for news in related_news %}
+			<div class="card mb-4 relates-news-cover">
+            <a href="/detail/{{news.id}}">
+              <img src="{{news.image.url}}" class="card-img-top" alt="img">
+              <div class="card-body">
+                <h5 class="card-title">{{news.title | truncatechars:100 }}</h5>
+                <p class="card-text">{{news.detail | truncatechars:100 | safe }}
+                </p>
+                <span style="color:#666;">By : {{news.author}}</span> <span>/</span>
+                <span style="color:#666;">{{news.type}}</span> <span>/</span>
+                <span style="color:#666;">{{news.add_time | date:"d M Y"}}</span> <span>/</span>
+				<span style="color:#666;">{{news.views}} views</span>
+              </div>
+            </a>
+          </div>
+		{% endfor %}
+		</div>
+	</div>
+</main>
+</section>
+{% endblock %}

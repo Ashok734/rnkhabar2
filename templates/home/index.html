@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+  <section id="slider-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <div class="news owl-carousel owl-theme">
+            <div class="item">
+              <div class="card bg-dark text-white">
+                <img src="{{first_news.image.url}}" class="card-img" alt="img">
+                <div class="card-img-overlay">
+                  <h5 class="card-title"><span class="news-type">{{first_news.type}}</span></h5>
+                  <a href="/detail/{{first_news.id}}">
+                    <p class="card-text">{{first_news.title | truncatechars:200}}</p>
+                  </a>
+                  <p class="card-text-date">
+                    <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{first_news.add_time | date:"d M Y"}}</span> /
+                    <span class="name"><i class="fa fa-user" aria-hidden="true"></i> {{first_news.author}}</span> /
+                    <span class="name"><i class="fa fa-eye" aria-hidden="true"></i> {{first_news.views}} views</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+        <div class="col-md-4">
+          {% for news in three_news %}
+          <div class="card bg-dark text-white">
+            <img src="{{news.image.url}}" class="card-img" alt="img">
+            <div class="card-img-overlay">
+              <h5 class="card-title"><span class="news-type">{{news.type}}</span></h5>
+              <a href="/detail/{{news.id}}">
+                <p class="card-text">{{news.title | truncatechars:100 }}</p>
+              </a>
+              <p class="card-text-date">
+                <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{news.add_time | date:"d M Y"}} </span> /
+                <span class="name"><i class="fa fa-user" aria-hidden="true"></i> {{news.author}} </span> /
+                 <span class="name"> {{first_news.views}}<i class="fa fa-eye" aria-hidden="true"></i> Views</span>
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="news-wrapper">
+    <div class="container">
+      
+      {% for category in three_categories %}
+      <div class="head-ww" style="position:relative;">
+     <h2 style="font-size:20px;">
+        <span style="background-color:rgba(37, 67, 105, 1);padding-left:10px;padding-right:30px;padding-top:10px;padding-bottom:10px;color:#ff7777; border-radius: 0vw 10vw 0vw 0vw;position:relative;z-index:9;">{{category.title}}
+        </span>
+      </h2>
+       <marquee style="position:absolute;top:0px;left:0;right:0px;z-index:1;" onmouseover="stop()" onmouseout="start()"> 
+  <a href="/detail/{{first_news.id}}"> {{first_news.title}}</a> &nbsp; &nbsp; &nbsp;
+   {% for news in three_news %}
+    <a href="/detail/{{news.id}}">{{news.title}}</a> &nbsp; &nbsp; &nbsp;
+    {% endfor %}
+      {% for news in news %}
+		{% if forloop.revcounter < 9 %}
+      <a href="/detail/{{news.id}}"> {{news.title}} </a> &nbsp; &nbsp; &nbsp;
+      {% endif %}
+	  	{% endfor %}
+</marquee>
+ </div>
+      <hr style="margin-top:0px;background:rgba(37, 67, 105, 1);">
+      <div class="row">
+        {% for news in category.news_set.all %}
+		{% if forloop.revcounter < 9 %}
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <a href="/detail/{{news.id}}">
+              <img src="{{news.image.url}}" class="card-img-top" alt="img">
+              <div class="card-body">
+                <h5 class="card-title">{{news.title | truncatechars:100 }}</h5>
+                <p class="card-text">{{news.detail | truncatechars:100 | safe }}
+                </p>
+                <span><i class="fa fa-user" aria-hidden="true"></i> {{news.author}}</span> 
+                {% comment %} <span><i class="fa fa-folder-open" aria-hidden="true"></i> {{news.type}}</span> <span>/</span> {% endcomment %}
+                <span><i class="fa fa-calendar" aria-hidden="true"></i> {{news.add_time | date:"d M Y"}}</span>
+                  <span><i class="fa fa-eye" aria-hidden="true"></i> {{news.views}} Views</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      
+
+        {% endif %}
+	  	{% endfor %}
+      </div>
+       
+      {% endfor %}
+     
+    </div>
+  </section>
+     
+ {% endblock %}
